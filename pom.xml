@@ -39,7 +39,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<cdh.version>0.8.0-cdh4a1-SNAPSHOT</cdh.version>
+        <cdh.version>2.6.0-cdh5.5.1</cdh.version>
+		<cdh.hive.version>1.1.0-cdh5.5.1</cdh.hive.version>
     </properties>
 
 
@@ -119,11 +120,10 @@
 		
     </build>
     <repositories>
-	<repository>
-	    <id>Cloudera</id>
-	    <name>Cloudera Maven Repo</name>
-	    <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
-	</repository>
+    	<repository>
+    		  <id>cloudera</id>
+		      <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+	    </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -133,21 +133,33 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.hadoop.hive</groupId>
-            <artifactId>hive-serde</artifactId>
-            <version>0.8.0-cdh4a1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hadoop.hive</groupId>
-            <artifactId>hive-exec</artifactId>
-            <version>0.8.0-cdh4a1-SNAPSHOT</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>${cdh.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-core</artifactId>
-            <version>0.20.2</version>
+            <artifactId>hadoop-mapreduce-client-core</artifactId>
+            <version>${cdh.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>${cdh.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-serde</artifactId>
+            <version>${cdh.hive.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-exec</artifactId>
+            <version>${cdh.hive.version}</version>
             <scope>provided</scope>
         </dependency>
 		<dependency>
